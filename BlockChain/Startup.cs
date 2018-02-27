@@ -5,7 +5,6 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using MediatR;
 using FluentValidation.AspNetCore;
-using BlockChain.Infraestructure;
 
 namespace Blockchain
 {
@@ -21,21 +20,13 @@ namespace Blockchain
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddMvc(options =>
-            {
-                options.Filters.Add(typeof(ValidationActionFilter));
-            })
+            services.AddMvc()
             .AddFeatureFolders()
             .AddFluentValidation(fvc => fvc.RegisterValidatorsFromAssemblyContaining<Startup>())
             .AddJsonOptions(options =>
             {
                 options.SerializerSettings.NullValueHandling = Newtonsoft.Json.NullValueHandling.Ignore;
                 options.SerializerSettings.Formatting = Newtonsoft.Json.Formatting.Indented;
-            });
-
-            services.AddDbContext<Db>(options =>
-            {
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
 
             services.AddCors();
@@ -51,8 +42,6 @@ namespace Blockchain
             }
 
             app.UseCors(builder => builder.AllowAnyOrigin().WithMethods(new string[] { "GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS" }).AllowAnyHeader());
-
-            app.UseMiddleware<HttpExceptionHandlerMiddleware>();
             app.UseMvc();
         }
     }

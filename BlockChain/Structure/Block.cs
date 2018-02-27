@@ -18,9 +18,8 @@ namespace BlockChain.Structure
         public int Difficulty { get; set; }
         public int Nonce { get; set; }
 
-        public Block(string previousHash, T data, int difficulty = 1)
+        public Block(T data, int difficulty = 1)
         {
-            this.PreviousHash = previousHash;
             this.Data = data;
             this.CreatedAt = DateTime.Now;
             this.Difficulty = difficulty;
@@ -41,7 +40,7 @@ namespace BlockChain.Structure
         {
             this.Hash = this.GenerateSHA256();
 
-            while (!Regex.IsMatch(this.Hash.Substring(0, this.Difficulty), "^(0){" + this.Difficulty + "}"))
+            while (!Regex.IsMatch(this.Hash, "^(0){" + this.Difficulty + "}"))
             {
                 try
                 {
