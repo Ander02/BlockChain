@@ -1,11 +1,10 @@
 ﻿using BlockChain.Util;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
-using System.Threading.Tasks;
 
 namespace BlockChain.Structure
 {
@@ -24,13 +23,14 @@ namespace BlockChain.Structure
             this.CreatedAt = DateTime.Now;
             this.Difficulty = difficulty;
             this.Nonce = 0;
+            this.PreviousBlock = null;
 
             this.Mine();
         }
 
         public String GenerateSHA256()
         {
-            var stringBlock = Newtonsoft.Json.JsonConvert.SerializeObject(this.Data) + this.CreatedAt + this.Difficulty + this.Nonce;
+            var stringBlock = JsonConvert.SerializeObject(this.Data) + this.CreatedAt + this.Difficulty + this.Nonce;
             var bytes = new SHA256Managed().ComputeHash(Encoding.ASCII.GetBytes(stringBlock));
 
             return bytes.ToBase64();
@@ -54,6 +54,5 @@ namespace BlockChain.Structure
             }
             return true;
         }
-
     }
 }

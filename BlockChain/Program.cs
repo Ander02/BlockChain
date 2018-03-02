@@ -1,51 +1,26 @@
 ﻿using System;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.DependencyInjection;
 using BlockChain.Structure;
 
-namespace Blockchain
+namespace BlockChain
 {
-    public class Program
+    class Program
     {
-        public static void Main(string[] args)
+        static void Main(string[] args)
         {
-            TestBlockChain();
+            Block<String> genesis = new Block<string>("Genesis", 2);
 
-            var host = BuildWebHost(args);
+            BlockChain<String> chain = new BlockChain<string>(genesis);
 
-            host.Run();
-        }
-
-        public static IWebHost BuildWebHost(string[] args) =>
-            WebHost.CreateDefaultBuilder(args)
-                .UseStartup<Startup>()
-                .Build();
-
-
-        public static void TestBlockChain()
-        {
-            Block<String> genesis = new Block<string>("Teste", 3);
-            
-            BlockChain<String> blockChain = new BlockChain<string>(genesis);
-
-            blockChain.AddBlock("Teste2");
-            blockChain.AddBlock("Teste3");
-            blockChain.AddBlock("Teste4");
-            blockChain.AddBlock("Teste5");
-            blockChain.AddBlock("Teste6");
-            blockChain.AddBlock("Teste7");
-            blockChain.AddBlock("Teste8");
-
-            if (blockChain.IsValid())
+            for (int i = 0; i < 100; i++)
             {
-                blockChain.PrintChain();
+                chain.AddBlock("Block " + i);
             }
 
-        }
+            if (chain.IsValid()) chain.PrintChain();
 
+            else Console.WriteLine("Invalid Chain");
+
+            Console.ReadLine();
+        }
     }
 }
