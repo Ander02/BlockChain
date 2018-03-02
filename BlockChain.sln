@@ -3,18 +3,36 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.27130.2027
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockChain", "BlockChain\BlockChain.csproj", "{53C33D19-A951-46ED-97D7-9C74E17091E2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BlockChain", "ConsoleApp1\BlockChain.csproj", "{CABB977B-1D37-4171-8A4E-9C397C6E618A}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|ARM = Debug|ARM
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|ARM = Release|ARM
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{53C33D19-A951-46ED-97D7-9C74E17091E2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{53C33D19-A951-46ED-97D7-9C74E17091E2}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{53C33D19-A951-46ED-97D7-9C74E17091E2}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{53C33D19-A951-46ED-97D7-9C74E17091E2}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CABB977B-1D37-4171-8A4E-9C397C6E618A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CABB977B-1D37-4171-8A4E-9C397C6E618A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CABB977B-1D37-4171-8A4E-9C397C6E618A}.Debug|ARM.ActiveCfg = Debug|Any CPU
+		{CABB977B-1D37-4171-8A4E-9C397C6E618A}.Debug|ARM.Build.0 = Debug|Any CPU
+		{CABB977B-1D37-4171-8A4E-9C397C6E618A}.Debug|x64.ActiveCfg = Debug|Any CPU
+		{CABB977B-1D37-4171-8A4E-9C397C6E618A}.Debug|x64.Build.0 = Debug|Any CPU
+		{CABB977B-1D37-4171-8A4E-9C397C6E618A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{CABB977B-1D37-4171-8A4E-9C397C6E618A}.Debug|x86.Build.0 = Debug|Any CPU
+		{CABB977B-1D37-4171-8A4E-9C397C6E618A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CABB977B-1D37-4171-8A4E-9C397C6E618A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CABB977B-1D37-4171-8A4E-9C397C6E618A}.Release|ARM.ActiveCfg = Release|Any CPU
+		{CABB977B-1D37-4171-8A4E-9C397C6E618A}.Release|ARM.Build.0 = Release|Any CPU
+		{CABB977B-1D37-4171-8A4E-9C397C6E618A}.Release|x64.ActiveCfg = Release|Any CPU
+		{CABB977B-1D37-4171-8A4E-9C397C6E618A}.Release|x64.Build.0 = Release|Any CPU
+		{CABB977B-1D37-4171-8A4E-9C397C6E618A}.Release|x86.ActiveCfg = Release|Any CPU
+		{CABB977B-1D37-4171-8A4E-9C397C6E618A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,8 +1,7 @@
-﻿using Microsoft.AspNetCore.Server.Kestrel.Internal.System.Collections.Sequences;
+﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 namespace BlockChain.Structure
 {
@@ -31,7 +30,7 @@ namespace BlockChain.Structure
         {
             var lastBlock = this.GetLastBlock();
 
-            var newBlock = new Block<T>(data, 2)
+            var newBlock = new Block<T>(data, this.Difficulty)
             {
                 PreviousBlock = lastBlock
             };
@@ -41,12 +40,11 @@ namespace BlockChain.Structure
 
         public bool IsValid()
         {
-            var genesis = this.GetGenesisBlock();
             var currentBlock = this.GetLastBlock();
 
-            while (currentBlock != null) currentBlock = currentBlock.PreviousBlock;
+            while (currentBlock.PreviousBlock != null) currentBlock = currentBlock.PreviousBlock;
 
-            if (currentBlock.Equals(genesis)) return true;
+            if (currentBlock.Equals(this.GetGenesisBlock())) return true;
 
             else return false;
         }
@@ -55,7 +53,14 @@ namespace BlockChain.Structure
         {
             foreach (var block in Blocks)
             {
-                Console.WriteLine(Newtonsoft.Json.JsonConvert.SerializeObject(t))
+                Console.WriteLine(JsonConvert.SerializeObject(new {
+                    block.Difficulty,
+                    block.Data,
+                    block.Nonce,
+                    block.Hash,
+                    block.CreatedAt,
+                    PreviousHash = block.PreviousBlock != null ? block.PreviousBlock.Hash : null
+                }));
             }
         }
     }
