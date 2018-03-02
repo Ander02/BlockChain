@@ -53,14 +53,7 @@ namespace BlockChain.Structure
         {
             foreach (var block in Blocks)
             {
-                Console.WriteLine(JsonConvert.SerializeObject(new {
-                    block.Difficulty,
-                    block.Data,
-                    block.Nonce,
-                    block.Hash,
-                    block.CreatedAt,
-                    PreviousHash = block.PreviousBlock != null ? block.PreviousBlock.Hash : null
-                }));
+                block.PrintBlock();
             }
         }
     }

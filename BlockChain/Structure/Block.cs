@@ -54,5 +54,18 @@ namespace BlockChain.Structure
             }
             return true;
         }
+
+        public void PrintBlock()
+        {
+            Console.WriteLine(JsonConvert.SerializeObject(new
+            {
+                this.Difficulty,
+                this.Data,
+                this.Nonce,
+                this.Hash,
+                this.CreatedAt,
+                PreviousHash = this.PreviousBlock?.Hash
+            }));
+        }
     }
 }
