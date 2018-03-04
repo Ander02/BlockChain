@@ -1,9 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using BlockChain.Structure;
+using System;
 
 namespace BlockChain.Util
 {
@@ -15,17 +11,5 @@ namespace BlockChain.Util
 
         public static bool NotEquals(this object obj1, object obj2) => !obj1.Equals(obj2);
 
-        public static void PrintBlock(this Block<T> block)
-        {
-            Console.WriteLine(JsonConvert.SerializeObject(new
-            {
-                block.Difficulty,
-                block.Data,
-                block.Nonce,
-                block.Hash,
-                block.CreatedAt,
-                PreviousHash = block.PreviousBlock?.Hash
-            }));
-        }
     }
 }
