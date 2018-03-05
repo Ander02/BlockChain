@@ -6,7 +6,7 @@ namespace BlockChain
     public class Program
     {
         static void Main(string[] args)
-        {
+        { 
             Console.WriteLine("Bem Vindo ao BlockChain Structure");
 
             int difficulty = 1;
